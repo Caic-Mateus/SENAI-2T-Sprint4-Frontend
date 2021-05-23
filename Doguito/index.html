@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="styles.css" /> 
+        <title>Doguitos</title> 
+    </head>
+    <body class="body">
+        <h1 class="chamada">SITE DE DOGUINHOS</h1>
+        <div id="dog1">
+            <img class="imagem1" src="Ibageins/2.jpeg" alt="Sammy"/> 
+            <h2 class="1">Sammy</h2>
+        </div>
+        <div id="dog2">
+            <img class="imagem2" src="Ibageins/3.jpeg" alt="Dragão"/> 
+            <h2 class="2">Dragão</h2>
+        </div>
+        <div id="dog3">
+            <img class="imagem3" src="Ibageins/4.jpeg" alt="Milton"/> 
+            <h2 class="3">Milton</h2>
+        </div>
+        <div id="dog4">
+            <img class="imagem4" src="Ibageins/5.jpeg" alt="Penny"/> 
+            <h2 class="4">Penny</h2>
+        </div>
+        <div id="dog5">
+            <img class="imagem5" src="Ibageins/6.jpeg" alt="Nenem"/> 
+            <h2 class="5">Nenem</h2>
+        </div>
+        <div id="botauns">
+            <input id="btn" type="button" value="Nome dos Spitz" onclick="soSpitz()"/> <!--Filter  -->
+            <input id="btn" type="button" value="Idade Real" onclick="idadeReal()"/> <!-- Map -->
+            <input id="btn" type="button" value="Soma todas as Idades" onclick="idadeSoma()"/> <!-- Reduce -->
+            <input id="btn" type="button" value="Piorar Site" onclick="mudaTudo()"/>
+        </div>
+
+        <script> 
+        dogs = [
+            {
+                nome: 'Sammy',
+                idade: 6,
+                raca: 'Samoieda'
+            },
+            {
+                nome: 'Dragão',
+                idade: 5,
+                raca: 'Spitz Alemão'
+            },
+            {
+                nome: 'Milton',
+                idade: 8,
+                raca: 'Spitz Alemão'
+            },
+            {
+                nome: 'Penny',
+                idade: 6,
+                raca: 'Spitz Alemão'
+            },
+            {
+                nome: 'Nenem',
+                idade: 4,
+                raca: 'Spitz Alemão'
+            },
+            ];
+            // filtra as raças pelo nome dela, retorna somente a que for "Spitz Alemão"
+            function filtros (dog){
+                return dog.raca == "Spitz Alemão";
+            }
+            //quando clicar no botão Nome dos Spitz, aparece apenas os sptiz
+            function soSpitz(){
+                var filtrado = dogs.filter(filtros);
+                return filtrado.forEach(x => alert(x.nome));
+            }
+
+            // filtra as idades, retorna apenas as iguais ou maiores a 3
+            function filtro(dog){
+                return dog.idade >= 3;
+            }
+
+            // quando clicar no botão idade real retorna as idades iguais ou maiores a tres
+            function idadeReal(){
+            var filtrarIdade = dogs.filter(filtro)
+            return filtrarIdade.forEach(x => alert(`Nome: ${x.nome}, Idade: ${x.idade}`));
+              
+            }
+
+        // botão de somar idades
+        function idadeSoma() {
+        var idades = dogs.reduce(function (total, item) {
+        return total + item.idade
+      }, 0);
+
+      return alert(`${idades}`);
+    }
+
+    function mudaTudo(){
+        // Altera o H1 da pagina
+        document.getElementsByClassName("chamada")[0].innerHTML = "SITE DO BARÇA"
+
+        document.getElementsByTagName("h1")[0].style.color = "black"
+        
+        // Altera o gif do fundo
+        document.body.style.backgroundImage = "url(Ibageins/bc.gif)"
+        //document.body.style.backgroundImage = "none"
+        //document.body.style.background = "white"
+
+        // Altera os nomes dos doguinhos
+        document.getElementById("dog1").getElementsByClassName("1")[0].innerHTML= "MESSI REI"
+        document.getElementById("dog2").getElementsByClassName("2")[0].innerHTML= "NEY"
+        document.getElementById("dog3").getElementsByClassName("3")[0].innerHTML= "É O TRIO"
+        
+        
+        // Altera as imagens
+        document.getElementById("dog1").getElementsByClassName("imagem1")[0].src= "Ibageins/messi.jpeg"
+        document.getElementById("dog2").getElementsByClassName("imagem2")[0].src= "Ibageins/ney2.jpg"
+        document.getElementById("dog3").getElementsByClassName("imagem3")[0].src= "Ibageins/trio.png"
+        
+        // Exclui duas divs para deixar mais curta
+        document.getElementById("dog4").style.display ="none" 
+        
+        document.getElementById("dog5").style.display = "none"
+   
+
+        // Retira o background das imagens
+        document.getElementById("dog1").style.background = "none"
+        document.getElementById("dog2").style.background = "none"
+        document.getElementById("dog3").style.background = "none"
+        document.getElementById("dog4").style.background = "none"
+        document.getElementById("dog5").style.background = "none"
+
+
+        // Deixa as imagens maiores
+        document.getElementById("dog1").getElementsByClassName("imagem1")[0].style.width = "100%"
+        document.getElementById("dog2").getElementsByClassName("imagem2")[0].style.width = "100%"
+        document.getElementById("dog3").getElementsByClassName("imagem3")[0].style.width = "100%"
+
+        // Muda a cor da fonte do h2
+        document.getElementsByTagName("h2")[0].style.color = "black"
+        document.getElementsByTagName("h2")[1].style.color = "black"
+        document.getElementsByTagName("h2")[2].style.color = "black"
+
+    }
+        </script> 
+    </body>
+</html>
